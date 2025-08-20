@@ -1,6 +1,6 @@
 ---
 title: "New York Street Fashion: A Visual Walkthrough"
-date: 2025-08-16
+date: 2024-09-16
 draft: false
 description: A photo-heavy sample post exploring the textures, trends, and swagger of NYC street style.
 tags: [streetwear, new york, fashion, style, photography]
