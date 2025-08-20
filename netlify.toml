@@ -1,0 +1,66 @@
+[build]
+  publish = "public"
+  # Default build (overridden per context below to set baseURL)
+  command = "hugo --gc --minify"
+
+[build.environment]
+  # Use Hugo Extended; Netlify will fetch the extended binary for this version
+  HUGO_VERSION = "0.125.7"
+  HUGO_ENABLEGITINFO = "true"
+
+# Production deploys from the main branch
+[context.production]
+  command = "hugo --gc --minify -b $URL"
+
+# Deploy Previews (Pull Requests)
+[context.deploy-preview]
+  command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
+
+# Branch deploys (non-production branches)
+[context.branch-deploy]
+  command = "hugo --gc --minify -b $DEPLOY_URL"
+
+# Long cache for static assets
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Moderate cache for search indexes
+[[headers]]
+  for = "/posts/index.json"
+  [headers.values]
+    Cache-Control = "public, max-age=600"
+
+[[headers]]
+  for = "/index.json"
+  [headers.values]
+    Cache-Control = "public, max-age=600"
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# 404 fallback
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+  force = false
+

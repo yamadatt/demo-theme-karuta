@@ -1,0 +1,83 @@
+baseURL = "https://hugo-theme-karuta.netlify.app"
+languageCode = "ja"
+title = "karuta"
+theme = "karuta"
+buildFuture = true
+
+[pagination]
+  pagerSize = 10
+
+# Enable JSON outputs for search and listing
+[outputs]
+  home    = ["HTML", "JSON", "RSS", "Atom"]
+  section = ["HTML", "JSON", "RSS", "Atom"]  
+  taxonomy = ["HTML", "JSON", "RSS", "Atom"]
+  term     = ["HTML", "JSON", "RSS", "Atom"]
+
+# Custom media type and output format for Atom
+[mediaTypes."application/atom+xml"]
+  suffixes = ["xml"]
+
+[outputFormats.Atom]
+  mediaType = "application/atom+xml"
+  baseName  = "atom"
+  isPlainText = false
+  rel = "alternate"
+
+# Sitemap configuration
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+# RSS configuration
+[params.rss]
+  limit = 20
+  fullText = true
+
+[params]
+  description = "日本語が読みやすいhugo themeの「かるた」"
+  titleLength = 38
+  summaryLength = 62
+  showRelated = true
+  relatedLimit = 3
+  # タイトル左の丸アイコンの表示制御（trueで非表示）
+  hideTitleIcon = true
+  # サムネイル未設定時のデフォルト画像
+  defaultCover = "/img/default-cover.svg"
+  # サイト全体のOGP画像（トップページで使用）
+  # X(Twitter)等に共有する際の画像。default-cover.svg を明示指定。
+  ogpImage = "/img/default-cover.png"
+  # Google Tag Manager コンテナID（使用する場合に設定）
+  googleTagManager = "GTM-PDBH7WC"
+  # Favicon設定
+  favicon = "/favicon.svg"
+  faviconPng = "/favicon-32x32.png"
+  appleTouchIcon = "/apple-touch-icon.png"
+
+# Social media configuration for OGP and Twitter Cards
+[params.social]
+  twitter = "hugo_karuta"  # Twitter handle without @
+
+[related]
+  threshold = 0
+  toLower = true
+
+[[related.indices]]
+  name = "tags"
+  weight = 100
+
+[[related.indices]]
+  name = "categories"
+  weight = 80
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[markup]
+  [markup.highlight]
+    style = "xcode"       # ベーススタイル名（クラス出力時は任意）
+    noClasses = false      # クラス出力に変更（テーマCSSで配色制御）
+    lineNos = false        # 必要であれば true に
+    tabWidth = 2

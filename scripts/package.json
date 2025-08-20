@@ -1,0 +1,23 @@
+{
+  "name": "hugo-theme-karuta-tools",
+  "version": "1.0.0",
+  "description": "Performance monitoring and SEO tools for Hugo Theme Karuta",
+  "main": "lighthouse-audit.js",
+  "scripts": {
+    "audit": "node lighthouse-audit.js",
+    "audit:local": "node lighthouse-audit.js http://localhost:1313",
+    "validate-structured-data": "node structured-data-validator.js",
+    "validate:local": "node structured-data-validator.js http://localhost:1313",
+    "install-deps": "npm install lighthouse chrome-launcher",
+    "test:all": "npm run audit:local && npm run validate:local"
+  },
+  "dependencies": {
+    "lighthouse": "^10.0.0",
+    "chrome-launcher": "^0.15.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "author": "Hugo Theme Karuta",
+  "license": "MIT"
+}

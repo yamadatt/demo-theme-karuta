@@ -1,0 +1,30 @@
+# Hugo generated files
+/public/
+/resources/_gen/
+.hugo_build.lock
+
+# macOS specific
+.DS_Store
+._*
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Editor/IDE specific
+.vscode/
+.idea/
+*.swp
+*~
+
+# Claude Code session files
+.claude
+
+.DS_Store
+
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore mistakenly nested posts directory
+content/posts/posts/

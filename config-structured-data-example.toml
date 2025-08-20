@@ -1,0 +1,42 @@
+# Hugo Theme Karuta - Structured Data Configuration Example
+# Copy relevant sections to your config.toml
+
+[params]
+  # Basic site information for structured data
+  description = "Hugoテーマ Karutaを使用したブログサイトです。技術記事や日常の出来事について書いています。"
+  author = "Your Name"
+  
+  # Organization information (for Organization schema)
+  foundingDate = "2023-01-01"
+  region = "Tokyo"
+  email = "contact@example.com"
+  
+  # Logo and images for structured data
+  logo = "/img/logo.png"
+  logoWidth = 200
+  logoHeight = 60
+  authorImage = "/img/author.jpg"
+  defaultCover = "/img/default-cover.svg"
+  
+  # Social media links (for Organization schema sameAs)
+  social = [
+    "https://twitter.com/username",
+    "https://github.com/username",
+    "https://linkedin.com/in/username"
+  ]
+
+# FAQ example - Add to individual pages
+# Add this to your post's front matter to generate FAQ schema
+[[params.faq]]
+  question = "Hugoテーマ Karutaの特徴は何ですか？"
+  answer = "Karutaは日本語に特化したHugoテーマで、優れたタイポグラフィ、レスポンシブデザイン、高度な検索機能を提供します。"
+
+[[params.faq]]
+  question = "このテーマはSEOに最適化されていますか？"
+  answer = "はい、JSON-LD構造化データ、Core Web Vitals最適化、アクセシビリティ対応など、包括的なSEO対策が実装されています。"
+
+# Language configuration
+[languages]
+  [languages.ja]
+    languageName = "日本語"
+    weight = 1

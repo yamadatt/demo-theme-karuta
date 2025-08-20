@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Block access to search indices and generated resources
+Disallow: /posts/index.json
+Disallow: /index.json
+Disallow: /resources/
+
+# Allow common crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Sitemap location
+Sitemap: /sitemap.xml
